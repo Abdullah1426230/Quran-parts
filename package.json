@@ -1,0 +1,19 @@
+{
+  "name": "quran-parts",
+  "version": "1.0.0",
+  "description": "موقع أجزاء القرآن الكريم",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdullah1426230/Quran-parts.git"
+  },
+  "author": "Abdullah Alshammary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdullah1426230/Quran-parts/issues"
+  },
+  "homepage": "https://github.com/Abdullah1426230/Quran-parts#readme"
+}

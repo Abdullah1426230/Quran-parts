@@ -1,0 +1,628 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+* {
+  padding: 0;
+  outline: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Reem Kufi', sans-serif;
+  font-weight: normal !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url("../images/خلفية.jpg");
+  overflow-x: hidden;
+  display: block !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: rgba(0, 0, 0, 0.34);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #777;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+iframe.end {
+  min-height: 320px;
+  margin-top: 10px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  iframe.end {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1170px) {
+  iframe.end {
+    min-height: 500px;
+  }
+}
+
+@media (min-width: 1440px) {
+  iframe.end {
+    min-height: 600px;
+  }
+}
+
+#open,
+#close {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  background-color: #444;
+  height: 5px;
+  margin: 10px 0;
+}
+
+/*Yes*/
+.yes .overlay {
+  position: fixed;
+  z-index: 55555555555555555555555555555555555555555555555555554;
+  background-color: rgba(0, 0, 0, 0.555);
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.yes .mainDone {
+  -webkit-transition: .6s;
+  transition: .6s;
+  position: fixed;
+  z-index: 555555555555555555555555555555555555555555555555555555;
+  max-width: 500px;
+  min-width: 300px;
+  width: 95%;
+  left: 50%;
+  top: 25px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-top: 10px solid green;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.yes .mainDone h2 {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.yes .mainDone img {
+  display: block;
+  margin: 10px auto;
+}
+
+.yes .mainDone button {
+  display: block;
+  margin: 10px auto;
+  background-color: darkgreen;
+  color: white;
+  border: 0;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+/* Alert */
+.alert {
+  width: calc(100% - 20px);
+  padding: 12px;
+  border: 4px solid #fff;
+  color: white;
+  background-color: #164234;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 23px;
+  margin: 18px auto;
+}
+
+.alert h2 {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/*=============================================
+=            Header            =
+=============================================*/
+header > nav {
+  background-color: #23282B;
+  color: white;
+  z-index: 55555;
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+header > nav h1 {
+  font-size: 35px;
+  font-weight: normal;
+}
+
+header .sideOverlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.555);
+  position: fixed;
+  z-index: 55555555555555555;
+  display: none;
+  top: 0;
+}
+
+header .sideOverlay.block {
+  display: block;
+}
+
+header .sideOverlay.none {
+  display: none;
+}
+
+header aside {
+  -webkit-transition: .4s;
+  transition: .4s;
+  width: 300px;
+  height: 100vh;
+  z-index: 555555555555555555555555;
+  position: fixed;
+  right: -320px;
+  top: 0;
+  background-color: #164234;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+header aside.opened {
+  right: 0;
+}
+
+header aside .title {
+  background-color: #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header aside .title h3 {
+  font-size: 25px;
+}
+
+header aside .title span {
+  background-color: #940101;
+  position: absolute;
+  left: 0;
+  width: 65px;
+  top: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  line-height: 75px;
+}
+
+header aside ul {
+  margin-top: 50px;
+}
+
+header aside ul > a li,
+header aside ul .drop > li {
+  background-color: #B38B07;
+  font-size: 26px;
+  margin: 10px 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  padding: 10px;
+}
+
+header aside ul > a li:hover,
+header aside ul .drop > li:hover {
+  background-color: #C0C0C0;
+  padding-right: 25px;
+}
+
+header aside ul .drop > li {
+  margin-bottom: 0;
+}
+
+header aside ul menu {
+  display: none;
+}
+
+header aside ul menu li {
+  background-color: #666666;
+  font-size: 26px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-bottom: 2px solid white;
+  color: #B38B07;
+  -webkit-transition: .4s;
+  transition: .4s;
+  line-height: 1;
+  cursor: pointer;
+  padding: 15px;
+}
+
+header aside ul menu li:hover {
+  background-color: #C0C0C0;
+  border-color: #B38B07;
+  padding-right: 25px;
+}
+
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 29px !important;
+  }
+}
+
+/*=====  End of Header  ======*/
+/* Loading */
+.loading {
+  position: fixed;
+  padding: 10px;
+  font-size: 45px;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #748824;
+  color: white;
+  top: 0;
+  right: 0;
+  z-index: 66666666666666666666666666666666666666666666666;
+}
+
+/*=============================================
+=            Section main rules            =
+=============================================*/
+section:nth-of-type(2n-1) {
+  margin: 10px 0;
+}
+
+section:nth-of-type(2n-1) h2 {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 32px;
+  text-align: center;
+}
+
+section:nth-of-type(2n-1) .main {
+  background-color: #2F5F8F;
+  padding: 10px;
+}
+
+section:nth-of-type(2n) {
+  margin: 10px 0;
+}
+
+section:nth-of-type(2n) h2 {
+  background-color: #26251B;
+  color: white;
+  padding: 10px;
+  font-size: 32px;
+  text-align: center;
+}
+
+section:nth-of-type(2n) .main {
+  background-color: #1E5846;
+  padding: 10px;
+}
+
+/*=====  End of Section main rules  ======*/
+/*=============================================
+=            About Section            =
+=============================================*/
+section.about .main {
+  padding: 0 10px;
+}
+
+section.about article {
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  word-spacing: 3px;
+  font-size: 26px;
+  background-color: #BDDFFF;
+}
+
+section.about article li {
+  list-style: arabic-indic;
+  margin: 8px 0;
+}
+
+/*=====  End of About Section  ======*/
+/*=============================================
+=            Section Description            =
+=============================================*/
+section.description .main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 400px))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
+  gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section.description .main article {
+  background-color: #bbb;
+  margin: 0 auto 10px;
+  width: 100%;
+  min-width: 310px;
+  max-width: 400px;
+}
+
+section.description .main article h3 {
+  background-color: #642424;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 28px;
+  word-spacing: 3px;
+}
+
+section.description .main article img {
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section.description .main article a {
+  display: block;
+  background-color: #2A6478;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+section.description .main article a:hover {
+  background-color: white;
+  color: #2A6478;
+}
+
+/*=====  End of Section Description  ======*/
+/*=============================================
+=            Contact            =
+=============================================*/
+section.contact h2 {
+  border-bottom: 2px solid #fff;
+}
+
+section.contact .main {
+  padding: 0 10px;
+}
+
+section.contact iframe {
+  width: calc(100% - 15px);
+  margin: 0 auto;
+  display: block;
+  max-width: 700px;
+  border: none;
+  min-height: 500px;
+}
+
+section.contact form {
+  max-width: 700px;
+  margin: auto;
+  background-color: #ccc;
+  padding: 10px;
+}
+
+section.contact form input,
+section.contact form textarea,
+section.contact form select {
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+section.contact form textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+section.contact form input[type="submit"] {
+  background-color: #1E5846;
+  border-radius: 0;
+  border: none;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+section.contact form input[type="reset"] {
+  background-color: #990000;
+  border-radius: 0;
+  border: none;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+section.contact form option {
+  padding: 10px !important;
+  font-size: 20px !important;
+  border-bottom: 2px solid #000;
+}
+
+section.contact h3 {
+  text-align: center;
+  font-size: 30px;
+  background-color: darkcyan;
+  padding: 10px;
+  color: white;
+}
+
+/*=====  End of Contact  ======*/
+/*=============================================
+=            PDFs            =
+=============================================*/
+.PDFs .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.PDFs .main div {
+  max-width: 800px;
+  width: 97%;
+  background-color: #bbb;
+  margin: 10px auto;
+  min-height: 500px;
+}
+
+.PDFs .main div h3 {
+  font-size: 24px;
+  background-color: #26251B;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+
+.PDFs .main div embed {
+  width: 100%;
+  min-height: 500px;
+}
+
+.PDFs .main div a {
+  display: block;
+  width: 100%;
+  background-color: #164234;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/*=====  End of PDFs  ======*/
+/**
+ *
+ * Footer
+ *
+ */
+footer {
+  background-color: #20214F;
+  color: white;
+  font-size: 20px;
+  padding: 13px;
+  text-align: center;
+}
+
+/*
+ *
+ * Top button and openSide
+ *
+ */
+.top-openside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.top-openside button {
+  border: none;
+  padding: 11px;
+  font-size: 24px;
+  position: fixed;
+  bottom: 10px;
+  cursor: pointer;
+  z-index: 55;
+  border-radius: 4px;
+}
+
+.top-openside button:first-of-type {
+  background-color: #23282B;
+  color: white;
+  right: 10px;
+  border: 1px solid #fff;
+}
+
+.top-openside button:last-of-type {
+  background-color: darkred;
+  color: white;
+  left: 10px;
+  width: 50px;
+}
+
+.top-openside button:last-of-type .icon {
+  font-size: 30px;
+  padding-top: 5px;
+}
+/*# sourceMappingURL=main.css.map */
